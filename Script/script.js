@@ -367,7 +367,7 @@ function renRejected(){
                 ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
-                <i class=" fa-regular fa-trash-can"></i>
+                <i class="delete-btn fa-regular fa-trash-can"></i>
               </button>
             </div>
             <p class="text-[#64748B] designation text-xl mb-5">
