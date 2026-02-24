@@ -10,7 +10,8 @@ const rejectedBtn = document.getElementById("rejected-btn");
 const mainContainer = document.getElementById("main-section");
 const cardContainer = document.getElementById("card-container");
 const filteredSection = document.getElementById("filtered-sections");
-// console.log(mainContainer, cardSections, filteredSection);
+const noJobsAvailable = document.getElementsByClassName("noJobsAvailable")
+// console.log(mainContainer, cardSections, filteredSection ,noJobsAvailable);
 
 //
 let total = document.getElementById("total-count");
@@ -59,7 +60,8 @@ filteredSection.classList.remove("hidden");
 renApplied();
 }else if (id === "all-btn") {
 cardContainer.classList.remove("hidden");
-filteredSection.classList.add("hidden")
+filteredSection.classList.add("hidden");
+noJobsAvailable.classList.add("hidden")
 }else if (id === "interview-btn"){
   cardContainer.classList.add("hidden")
   filteredSection.classList.remove("hidden")
@@ -197,6 +199,15 @@ calculateCount()
 
 function renApplied() {
   filteredSection.innerHTML = "";
+
+  if(appliedList.length === 0){
+    noJobsAvailable.classList.remove("hidden");
+    return;
+  }else{
+    noJobsAvailable.classList.add("hidden")
+  }
+
+
   for (let apply of appliedList) {
     let div = document.createElement("div");
     div.className =
@@ -245,6 +256,14 @@ function renApplied() {
 
 function renInterview(){
 filteredSection.innerHTML = "";
+
+if(interviewList.length === 0){
+noJobsAvailable.classList.remove("hidden")
+return;
+}else{
+  noJobsAvailable.classList.add("hidden")
+}
+
 for (let apply of interviewList){
   let div = document.createElement("div");
   div.className = "job-card card-body bg-base-100 card w-full min-h-72 shadow-sm";
@@ -292,6 +311,13 @@ for (let apply of interviewList){
 
 function renRejected(){
   filteredSection.innerHTML = "";
+  if(rejectedList.length === 0){
+    noJobsAvailable.classList.remove("hidden")
+    return;
+  }else{
+    noJobsAvailable.classList.add("hidden")
+  };
+  
   for( let apply of rejectedList){
     let div = document.createElement("div")
     div.className = "job-card card-body bg-base-100 card w-full min-h-72 shadow-sm";
