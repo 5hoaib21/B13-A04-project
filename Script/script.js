@@ -110,7 +110,7 @@ mainContainer.addEventListener("click", function (event){
       interviewList = interviewList.filter(
         (item)=> item.cardHeading !== cardInformation.cardHeading);
 
-        tabStyle(currStatus);
+        // tabStyle(currStatus);
 
         calculateCount();
 }else if (event.target.classList.contains("interview-btn")){
@@ -144,7 +144,7 @@ const cardExist = interviewList.find(
   rejectedList = rejectedList.filter(
     (item)=> item.cardHeading !== cardInformation.cardHeading
   );
-  tabStyle(currStatus);
+  // tabStyle(currStatus);
   calculateCount();
 }else if (event.target.classList.contains("rejected-btn")){
 const card = event.target.closest(".job-card");
@@ -173,7 +173,7 @@ const cardExist = rejectedList.find(
       (item) => item.cardHeading !== cardInformation.cardHeading);
       interviewList = interviewList.filter(
         (item)=> item.cardHeading !== cardInformation.cardHeading);
-        tabStyle(currStatus);
+        // tabStyle(currStatus);
         calculateCount();
 }
 if(event.target.classList.contains("delete-btn")){
