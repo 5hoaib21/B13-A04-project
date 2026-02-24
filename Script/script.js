@@ -1,4 +1,4 @@
-console.log("hey there");
+// console.log("hey there");
 
 const allBtn = document.getElementById("all-btn");
 const appliedBtn = document.getElementById("applied-btn");
@@ -61,7 +61,13 @@ renApplied();
 }else if (id === "all-btn") {
 cardContainer.classList.remove("hidden");
 filteredSection.classList.add("hidden");
-noJobsAvailable.classList.add("hidden")
+// noJobsAvailable.classList.add("hidden")
+if(cardContainer.children.length === 0){
+noJobsAvailable.classList.remove("hidden");
+
+}else{
+  noJobsAvailable.classList.add("hidden");
+}
 }else if (id === "interview-btn"){
   cardContainer.classList.add("hidden")
   filteredSection.classList.remove("hidden")
@@ -111,9 +117,10 @@ mainContainer.addEventListener("click", function (event){
       interviewList = interviewList.filter(
         (item)=> item.cardHeading !== cardInformation.cardHeading);
 
-        // tabStyle(currStatus);
-
+        
         calculateCount();
+        tabStyle(currStatus); 
+
 }else if (event.target.classList.contains("interview-btn")){
   const card = event.target.closest(".job-card");
 
@@ -145,8 +152,9 @@ const cardExist = interviewList.find(
   rejectedList = rejectedList.filter(
     (item)=> item.cardHeading !== cardInformation.cardHeading
   );
-  // tabStyle(currStatus);
   calculateCount();
+  tabStyle(currStatus);
+
 }else if (event.target.classList.contains("rejected-btn")){
 const card = event.target.closest(".job-card");
 // console.log(card);
@@ -174,19 +182,47 @@ const cardExist = rejectedList.find(
       (item) => item.cardHeading !== cardInformation.cardHeading);
       interviewList = interviewList.filter(
         (item)=> item.cardHeading !== cardInformation.cardHeading);
-        // tabStyle(currStatus);
         calculateCount();
+        tabStyle(currStatus);
 }
 if(event.target.classList.contains("delete-btn")){
   const card = event.target.closest(".job-card");
-  const cardTitle = card.querySelector(".card-title").innerText;
-  card.remove();
+  const cardHeading = card.querySelector(".card-title").innerText;
+  // card.remove();
 
-  appliedList = appliedList.filter((item) => item.cardTitle !== cardTitle);
-  interviewList = interviewList.filter((item) => item.cardTitle !== cardTitle);
-  rejectedList = rejectedList.filter((item)=> item.cardTitle !== cardTitle)
+  // appliedList = appliedList.filter((item) => item.cardTitle !== cardTitle);
+  // interviewList = interviewList.filter((item) => item.cardTitle !== cardTitle);
+openModal(
+  "Alert Messege!",
+  "are you sure to delete this info",
+  function(){
+    card.remove();
+    if(
+      cardContainer.children.length === 0 && 
+      appliedList.length === 0 &&
+      interviewList.length === 0 && 
+      rejectedList.length === 0
+    ){
+      noJobsAvailable.classList.remove("hidden")
+    }
+    appliedList = appliedList.filter(
+      (item)=> item.cardHeading !== cardHeading
+    );
+    interviewList = interviewList.filter(
+      (item)=> item.cardHeading !== cardHeading
+    );
+    rejectedList = rejectedList.filter(
+      (item)=> item.cardHeading !== cardHeading
+    );
+    calculateCount()
+    tabStyle(currStatus);
+  }
+)
+return;
+  // rejectedList = rejectedList.filter((item)=> item.cardTitle !== cardTitle)
 }
 calculateCount()
+tabStyle(currStatus)
 
 });
 
@@ -219,7 +255,7 @@ function renApplied() {
                 ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
-                <i class="fa-regular fa-trash-can"></i>
+                <i class="delete-btn fa-regular fa-trash-can"></i>
               </button>
             </div>
             <p class="text-[#64748B] designation text-xl mb-5">
@@ -274,7 +310,7 @@ for (let apply of interviewList){
                 ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
-                <i class="fa-regular fa-trash-can"></i>
+                <i class="delete-btn fa-regular fa-trash-can"></i>
               </button>
             </div>
             <p class="text-[#64748B] designation text-xl mb-5">
@@ -328,7 +364,7 @@ function renRejected(){
                 ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
-                <i class="fa-regular fa-trash-can"></i>
+                <i class="delete-btn fa-regular fa-trash-can"></i>
               </button>
             </div>
             <p class="text-[#64748B] designation text-xl mb-5">
@@ -360,4 +396,33 @@ function renRejected(){
     `;
     filteredSection.appendChild(div);
   }
+}
+
+
+//function about Confirmation alert
+
+const btnOkay = document.querySelector(".ok-btn");
+const btnClosed = document.querySelector(".close-btn")
+
+
+btnOkay.addEventListener("click", function(){
+ if(modalAction){
+  modalAction();
+ }
+ modal.close();
+});
+
+btnClosed.addEventListener("click", function(){
+  modal.close();
+})
+
+let modalAction = null;
+const modalMessege = document.getElementById("msg"); 
+const modalTitle = document.getElementById("title");
+const modal = document.getElementById("my_modal_2");
+function openModal(title = "", messege = "", action = null){
+modalTitle.textContent = title;
+modalMessege.textContent = messege;
+modalAction = action;
+modal.showModal();
 }

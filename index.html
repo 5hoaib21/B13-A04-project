@@ -261,7 +261,7 @@
 
           <!-- Card No.4 -->
           <div
-            id="card-3"
+            id="card-4"
             class="job-card card-body bg-base-100 card w-full min-h-72 shadow-sm"
           >
             <div class="flex justify-between">
@@ -303,7 +303,7 @@
 
           <!-- Card No.5 -->
           <div
-            id="card-3"
+            id="card-5"
             class="job-card card-body bg-base-100 card w-full min-h-72 shadow-sm"
           >
             <div class="flex justify-between">
@@ -346,7 +346,7 @@
 
           <!-- Card No.6 -->
           <div
-            id="card-3"
+            id="card-6"
             class="job-card card-body bg-base-100 card w-full min-h-72 shadow-sm"
           >
             <div class="flex justify-between">
@@ -389,7 +389,7 @@
 
           <!-- Card No.7 -->
           <div
-            id="card-3"
+            id="card-7"
             class="job-card card-body bg-base-100 card w-full min-h-72 shadow-sm"
           >
             <div class="flex justify-between">
@@ -432,7 +432,7 @@
 
           <!-- Card No.8 -->
           <div
-            id="card-3"
+            id="card-8"
             class="job-card card-body bg-base-100 card w-full min-h-72 shadow-sm"
           >
             <div class="flex justify-between">
@@ -474,6 +474,31 @@
           </div>
         </div>
       </div>
+
+
+      <!-- Confirmation alert  -->
+       <!-- Modal Section -->
+      <section class="modal">
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+        <dialog id="my_modal_2" class="modal">
+          <div class="modal-box">
+            <h3 id="title" class="text-xl font-bold flex justify-center text-center text-red-400"></h3>
+            <p id="msg" class="py-4 text-[#323B49] flex justify-center text-center"></p>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn ok-btn btn-error">OK</button>
+                <button class="btn close-btn">Close</button>
+              </form>
+            </div>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </section>
+
     </main>
     <!-- connect to Script File -->
     <script src="./Script/script.js"></script>
