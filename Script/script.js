@@ -18,7 +18,6 @@ let total = document.getElementById("total-count");
 let appliedCount = document.getElementById("applied-count");
 let interviewCount = document.getElementById("interview-count");
 let rejectedCount = document.getElementById("rejected-count");
-
 // console.log(total, appliedCount, interviewCount, rejectedCount);
 
 let currStatus = "all";
@@ -26,6 +25,7 @@ let appliedList = [];
 let interviewList = [];
 let rejectedList = [];
 
+// card calculation function 
 function calculateCount() {
   total.innerText = cardContainer.children.length;
   appliedCount.innerText = appliedList.length;
@@ -42,7 +42,7 @@ calculateCount();
 //
 
 //
-
+// function about highlighting "filtering tab section "
 function tabStyle(id){
 allBtn.classList.remove("bg-primary", "text-white");
 appliedBtn.classList.remove("bg-primary", "text-white");
@@ -79,6 +79,7 @@ noJobsAvailable.classList.add("hidden")
 
 //
 
+// function about click badge button and delete button
 mainContainer.addEventListener("click", function (event){
   if(event.target.classList.contains("applied-btn")){
     const card = event.target.closest(".job-card");
@@ -196,7 +197,7 @@ calculateCount()
 
 
 
-
+//     3-functions about render : applied, Interview, Rejected
 function renApplied() {
   filteredSection.innerHTML = "";
 
