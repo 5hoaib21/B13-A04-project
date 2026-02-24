@@ -50,7 +50,10 @@ interviewBtn.classList.remove("bg-primary", "text-white");
 rejectedBtn.classList.remove("bg-primary", "text-white");
 
 const selected = document.getElementById(id);
-selected.classList.add("bg-primary", "text-white")
+// selected.classList.add("bg-primary", "text-white")
+if(selected){
+  selected.classList.add("bg-primary", "text-white")
+}
 
 currStatus = id;
 
@@ -364,7 +367,7 @@ function renRejected(){
                 ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
-                <i class="delete-btn fa-regular fa-trash-can"></i>
+                <i class=" fa-regular fa-trash-can"></i>
               </button>
             </div>
             <p class="text-[#64748B] designation text-xl mb-5">
