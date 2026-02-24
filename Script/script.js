@@ -34,6 +34,52 @@ function calculateCount() {
     cardContainer.children.length;
 }
 calculateCount();
+//
+
+//
+
+//
+
+//
+
+function tabStyle(id){
+allBtn.classList.remove("bg-primary", "text-white");
+appliedBtn.classList.remove("bg-primary", "text-white");
+interviewBtn.classList.remove("bg-primary", "text-white");
+rejectedBtn.classList.remove("bg-primary", "text-white");
+
+const selected = document.getElementById(id);
+selected.classList.add("bg-primary", "text-white")
+
+currStatus = id;
+
+if(id === "applied-btn"){
+cardContainer.classList.add("hidden");
+filteredSection.classList.remove("hidden");
+renApplied();
+}else if (id === "all-btn") {
+cardContainer.classList.remove("hidden");
+filteredSection.classList.add("hidden")
+}else if (id === "interview-btn"){
+  cardContainer.classList.add("hidden")
+  filteredSection.classList.remove("hidden")
+  renInterview();
+}else if(id === "rejected-btn"){
+  cardContainer.classList.add("hidden");
+  filteredSection.classList.remove("hidden")
+  renRejected()
+}
+}
+
+
+
+
+
+
+
+
+
+
 
 function renApplied() {
   filteredSection.innerHTML = "";
@@ -123,6 +169,54 @@ for (let apply of interviewList){
       REJECTED
     </button>
   </div>
-  `
+  `;
+  filteredSection.appendChild(div);
 }
+}
+
+
+
+function renRejected(){
+  filteredSection.innerHTML = "";
+  for( let apply of rejectedList){
+    let div = document.createElement("div")
+    div.className = "job-card card-body bg-base-100 card w-full min-h-72 shadow-sm";
+    div.innerHTML = `
+     <div class="flex justify-between">
+              <h2 class="card-title text-[#002C5C] font-bold text-xl mb-1">
+                ${apply.cardTitle}
+              </h2>
+              <button class="btn btn-circle delete-btn delete-btn">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </div>
+            <p class="text-[#64748B] designation text-xl mb-5">
+    ${apply.designation}
+  </p>
+  <p class="text-[#64748B] mb-5 salary">
+    ${apply.salary}
+  </p>
+  <p
+    class="text-[#002C5C] status-text font-medium px-3 py-3 bg-[#EEF4FF] rounded max-w-max mb-2"
+  >
+    ${apply.status}
+  </p>
+  <p class="mb-5 text-[#323B49] description">
+    ${apply.description}
+  </p>
+  <!-- ActionButton -->
+  <div class="card-actions">
+    <button class="btn applied-btn btn-outline btn-primary">
+      APPLIED
+    </button>
+    <button class="btn interview-btn btn-outline btn-success">
+      INTERVIEW
+    </button>
+    <button class="btn rejected-btn btn-outline btn-error">
+      REJECTED
+    </button>
+  </div>
+    `;
+    filteredSection.appendChild(div);
+  }
 }
