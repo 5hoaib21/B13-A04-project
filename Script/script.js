@@ -10,7 +10,7 @@ const rejectedBtn = document.getElementById("rejected-btn");
 const mainContainer = document.getElementById("main-section");
 const cardContainer = document.getElementById("card-container");
 const filteredSection = document.getElementById("filtered-sections");
-const noJobsAvailable = document.getElementsByClassName("noJobsAvailable")
+const noJobsAvailable = document.querySelector(".noJobsAvailable")
 // console.log(mainContainer, cardSections, filteredSection ,noJobsAvailable);
 
 //
@@ -317,7 +317,7 @@ function renRejected(){
   }else{
     noJobsAvailable.classList.add("hidden")
   };
-  
+
   for( let apply of rejectedList){
     let div = document.createElement("div")
     div.className = "job-card card-body bg-base-100 card w-full min-h-72 shadow-sm";
