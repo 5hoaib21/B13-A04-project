@@ -24,7 +24,45 @@
      <link rel="stylesheet" href="Styles/style.css">
 
   </head>
-  <body>
-    <h1 class="bg-blue-500 text-[60px] font-bold">Job Application Tracker</h1>
+  <body class="bg-[#eaedf0]">
+      <!-- header/nav section -->
+   <header class="max-w-7xl mx-auto px-4">
+      <h1 class="text-[#002C5C] text-4xl font-bold mt-16 mb-5">
+        Job Application Tracker
+      </h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <div
+          class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
+        >
+          <p class="text-[#323B49]">TOTAL</p>
+          <p id="totalCount" class="text-2xl font-bold text-[#002C5C]">0</p>
+        </div>
+        
+        <div
+          class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
+        >
+          <p class="text-[#323B49]">APPLIED</p>
+          <p id="appliedCount" class="text-2xl font-bold text-primary">0</p>
+        </div>
+        
+        <div
+          class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
+        >
+          <p class="text-[#323B49]">INTERVIEW</p>
+          <p id="interviewCount" class="text-2xl font-bold text-[#10B981]">0</p>
+        </div>
+        
+        <div
+          class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
+        >
+          <p class="text-[#323B49]">REJECTED</p>
+          <p id="rejectedCount" class="text-2xl font-bold text-[#EF4444]">0</p>
+        </div>
+      </div>
+      <!-- Break Line -->
+      <hr class="my-8 text-[#E6E7E9]" />
+    </header>
   </body>
 </html>
