@@ -71,7 +71,121 @@ filteredSection.classList.add("hidden")
 }
 }
 
+//
 
+//
+
+//
+
+mainContainer.addEventListener("click", function (event){
+  if(event.target.classList.contains("applied-btn")){
+    const card = event.target.closest(".job-card");
+//  q  console.log(card);
+    const cardHeading = card.querySelector(".card-title").innerText;
+    const designation = card.querySelector(".designation").innerText;
+    const salary = card.querySelector(".salary").innerText;
+    let status = card.querySelector(".status-text")
+    const description = card.querySelector(".description").innerText
+    // console.log(cardHeading, status, designation, salary, description);
+
+    status.innerText = "APPLIED";
+
+    const cardInformation = {
+      cardHeading,
+      designation,
+      salary,
+      status: "APPLIED",
+      description,
+    };
+
+    // console.log(cardInformation);
+
+    const cardExist = appliedList.find(
+      (item)=>item.cardHeading === cardInformation.cardHeading);
+      if(!cardExist){
+        appliedList.push(cardInformation);
+      };
+      interviewList = interviewList.filter(
+        (item)=> item.cardHeading !== cardInformation.cardHeading);
+
+        tabStyle(currStatus);
+
+        calculateCount();
+}else if (event.target.classList.contains("interview-btn")){
+  const card = event.target.closest(".job-card");
+
+  const cardHeading = card.querySelector(".card-title").innerText;
+    const designation = card.querySelector(".designation").innerText;
+    const salary = card.querySelector(".salary").innerText;
+    let status = card.querySelector(".status-text")
+    const description = card.querySelector(".description").innerText
+    // console.log(cardHeading,status, designation, salary, description);
+
+    status.innerText = "INTERVIEW";
+
+    const cardInformation = {
+      cardHeading,
+      designation,
+      salary,
+      status: "INTERVIEW",
+      description,
+};
+
+const cardExist = interviewList.find(
+  (item)=> item.cardHeading === cardInformation.cardHeading);
+  if(!cardExist){
+    interviewList.push(cardInformation);
+  }
+  appliedList = appliedList.filter(
+    (item)=> item.cardHeading !== cardInformation.cardHeading
+  )
+  rejectedList = rejectedList.filter(
+    (item)=> item.cardHeading !== cardInformation.cardHeading
+  );
+  tabStyle(currStatus);
+  calculateCount();
+}else if (event.target.classList.contains("rejected-btn")){
+const card = event.target.closest(".job-card");
+// console.log(card);
+
+ const cardHeading = card.querySelector(".card-title").innerText;
+    const designation = card.querySelector(".designation").innerText;
+    const salary = card.querySelector(".salary").innerText;
+    let status = card.querySelector(".status-text");
+    const description = card.querySelector(".description").innerText;
+// console.log(cardHeading, designation, salary, status, description);
+    status.innerText = "REJECTED";
+ const cardInformation = {
+      cardHeading,
+      designation,
+      salary,
+      status: "REJECTED",
+      description,
+    };
+const cardExist = rejectedList.find(
+  (item)=> item.cardHeading === cardInformation.cardHeading);
+  if (!cardExist) {
+      rejectedList.push(cardInformation);
+    }
+    appliedList = appliedList.filter(
+      (item) => item.cardHeading !== cardInformation.cardHeading);
+      interviewList = interviewList.filter(
+        (item)=> item.cardHeading !== cardInformation.cardHeading);
+        tabStyle(currStatus);
+        calculateCount();
+}
+if(event.target.classList.contains("delete-btn")){
+  const card = event.target.closest(".job-card");
+  const cardTitle = card.querySelector(".card-title").innerText;
+  card.remove();
+
+  appliedList = appliedList.filter((item) => item.cardTitle !== cardTitle);
+  interviewList = interviewList.filter((item) => item.cardTitle !== cardTitle);
+  rejectedList = rejectedList.filter((item)=> item.cardTitle !== cardTitle)
+}
+calculateCount()
+
+});
 
 
 
