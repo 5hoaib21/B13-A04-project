@@ -20,12 +20,16 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- fontAwesome CDN-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Css file connect -->
      <link rel="stylesheet" href="Styles/style.css">
 
   </head>
   <body class="bg-[#eaedf0]">
-      <!-- header/nav section -->
+      
    <header class="max-w-7xl mx-auto px-4">
       <h1 class="text-[#002C5C] text-4xl font-bold mt-16 mb-5">
         Job Application Tracker
@@ -37,32 +41,80 @@
           class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
         >
           <p class="text-[#323B49]">TOTAL</p>
-          <p id="totalCount" class="text-2xl font-bold text-[#002C5C]">0</p>
+          <p id="total-count" class="text-2xl font-bold text-[#002C5C]">0</p>
         </div>
         
         <div
           class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
         >
           <p class="text-[#323B49]">APPLIED</p>
-          <p id="appliedCount" class="text-2xl font-bold text-primary">0</p>
+          <p id="applied-count" class="text-2xl font-bold text-primary">0</p>
         </div>
         
         <div
           class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
         >
           <p class="text-[#323B49]">INTERVIEW</p>
-          <p id="interviewCount" class="text-2xl font-bold text-[#10B981]">0</p>
+          <p id="interview-count" class="text-2xl font-bold text-[#10B981]">0</p>
         </div>
         
         <div
           class="max-w-96 bg-base-100 rounded-lg p-5 space-y-2 border border-[#F1F2F4]"
         >
           <p class="text-[#323B49]">REJECTED</p>
-          <p id="rejectedCount" class="text-2xl font-bold text-[#EF4444]">0</p>
+          <p id="rejected-count" class="text-2xl font-bold text-[#EF4444]">0</p>
         </div>
       </div>
       <!-- Break Line -->
       <hr class="my-8 text-[#E6E7E9]" />
     </header>
+
+<main class="max-w-7xl mx-auto px-4">
+  <section>
+          <div class="flex justify-between mb-6">
+            <h2 class="text-[#002C5C] font-bold text-2xl">Available Jobs</h2>
+            <p><span id="job-count">0</span> jobs</p>
+          </div>
+          
+          <div class="mb-4 space-x-3">
+            <button
+              onclick="tabStyle('all-btn')"
+              id="all-btn"
+              class="bg-primary rounded-lg px-8 py-3 border cursor-pointer border-[#F1F2F4] text-white transition"
+            >
+              All
+            </button>
+  
+           
+            <button
+              onclick="tabStyle('applied-btn')"
+              id="applied-btn"
+              class="bg-base-100 rounded-lg px-8 py-3 border cursor-pointer border-[#F1F2F4]"
+            >
+              Applied
+            </button>
+  
+            
+            <button
+              onclick="tabStyle('interview-btn')"
+              id="interview-btn"
+              class="bg-base-100 rounded-lg px-8 py-3 border cursor-pointer border-[#F1F2F4]"
+            >
+              Interview
+            </button>
+  
+          
+            <button
+              onclick="tabStyle('rejected-btn')"
+              id="rejected-btn"
+              class="bg-base-100 rounded-lg px-8 py-3 border cursor-pointer border-[#F1F2F4]"
+            >
+              Rejected
+            </button>
+          </div>
+        </section>
+
+</main>
+
   </body>
 </html>
