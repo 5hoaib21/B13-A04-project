@@ -204,7 +204,7 @@ function renApplied() {
     div.innerHTML = `
     <div class="flex justify-between">
               <h2 class="card-title text-[#002C5C] font-bold text-xl mb-1">
-                ${apply.cardTitle}
+                ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
                 <i class="fa-regular fa-trash-can"></i>
@@ -251,7 +251,7 @@ for (let apply of interviewList){
   div.innerHTML = `
    <div class="flex justify-between">
               <h2 class="card-title text-[#002C5C] font-bold text-xl mb-1">
-                ${apply.cardTitle}
+                ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
                 <i class="fa-regular fa-trash-can"></i>
@@ -298,7 +298,7 @@ function renRejected(){
     div.innerHTML = `
      <div class="flex justify-between">
               <h2 class="card-title text-[#002C5C] font-bold text-xl mb-1">
-                ${apply.cardTitle}
+                ${apply.cardHeading}
               </h2>
               <button class="btn btn-circle delete-btn delete-btn">
                 <i class="fa-regular fa-trash-can"></i>
