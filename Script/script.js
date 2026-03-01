@@ -144,7 +144,7 @@ mainContainer.addEventListener("click", function (event){
       cardHeading,
       designation,
       salary,
-      status: "INTERVIEW",
+      status: "INTERVIEWING",
       description,
 };
 
