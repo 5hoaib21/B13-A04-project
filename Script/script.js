@@ -9,6 +9,7 @@ const rejectedBtn = document.getElementById("rejected-btn");
 
 const mainContainer = document.getElementById("main-section");
 const cardContainer = document.getElementById("card-container");
+const countJob = document.getElementById("job-count")
 const filteredSection = document.getElementById("filtered-sections");
 const noJobsAvailable = document.querySelector(".noJobsAvailable")
 // console.log(mainContainer, cardSections, filteredSection ,noJobsAvailable);
@@ -25,14 +26,13 @@ let appliedList = [];
 let interviewList = [];
 let rejectedList = [];
 
-// card calculation function 
+// function about card calculation for tab
 function calculateCount() {
   total.innerText = cardContainer.children.length;
   appliedCount.innerText = appliedList.length;
   interviewCount.innerText = interviewList.length;
   rejectedCount.innerText = rejectedList.length;
-  document.getElementById("job-count").innerText =
-    cardContainer.children.length;
+  countJob.innerText = cardContainer.children.length;
 }
 calculateCount();
 //
@@ -44,7 +44,7 @@ calculateCount();
 //
 // function about highlighting "filtering tab section "
 function tabStyle(id){
-allBtn.classList.remove("bg-primary", "text-white");
+// allBtn.classList.remove("bg-primary", "text-white");
 appliedBtn.classList.remove("bg-primary", "text-white");
 interviewBtn.classList.remove("bg-primary", "text-white");
 rejectedBtn.classList.remove("bg-primary", "text-white");
@@ -52,6 +52,7 @@ rejectedBtn.classList.remove("bg-primary", "text-white");
 const selected = document.getElementById(id);
 // selected.classList.add("bg-primary", "text-white")
 if(selected){
+  allBtn.classList.remove("bg-primary", "text-white");
   selected.classList.add("bg-primary", "text-white")
 }
 
@@ -60,6 +61,7 @@ currStatus = id;
 if(id === "applied-btn"){
 cardContainer.classList.add("hidden");
 filteredSection.classList.remove("hidden");
+countJob.innerText = `${appliedList.length} of ${cardContainer.children.length}`;
 renApplied();
 }else if (id === "all-btn") {
 cardContainer.classList.remove("hidden");
@@ -74,6 +76,8 @@ noJobsAvailable.classList.remove("hidden");
 }else if (id === "interview-btn"){
   cardContainer.classList.add("hidden")
   filteredSection.classList.remove("hidden")
+  countJob.innerText = `${interviewList.length} of 
+  ${cardContainer.children.length}`;
   renInterview();
 }else if(id === "rejected-btn"){
   cardContainer.classList.add("hidden");
