@@ -80,6 +80,7 @@ function tabStyle(id) {
   } else if (id === "rejected-btn") {
     cardContainer.classList.add("hidden");
     filteredSection.classList.remove("hidden");
+    countJob.innerText = `${rejectedList.length} of ${cardContainer.children.length}`;
     renRejected();
   }
 }
